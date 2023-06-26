@@ -1066,22 +1066,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2059557781}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 551684074}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2064772336}
+        m_TargetAssemblyTypeName: UserNameInputScript, Assembly-CSharp
+        m_MethodName: JoinButtonFct
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1669,9 +1657,9 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 924116531}
+      - m_Target: {fileID: 2064772336}
         m_TargetAssemblyTypeName: UserNameInputScript, Assembly-CSharp
-        m_MethodName: ChangeColorWhite
+        m_MethodName: CodeColorWhite
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2166,7 +2154,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2193,7 +2181,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2243,51 +2231,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891820567}
   m_CullTransparentMesh: 1
---- !u!1 &924116530
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 924116532}
-  - component: {fileID: 924116531}
-  m_Layer: 0
-  m_Name: CodeInputScript
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &924116531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924116530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48789dde2d91d5d4086558c9ab6164ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NameInput: {fileID: 739700035}
---- !u!4 &924116532
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 924116530}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 650.5, y: 366, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2372,14 +2315,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.34809712, y: -0, z: -0, w: 0.9374585}
-  m_LocalPosition: {x: 0, y: 8.22, z: -11.37}
+  m_LocalRotation: {x: 0.47335836, y: -0, z: -0, w: 0.88087}
+  m_LocalPosition: {x: 0, y: 10.56, z: -9.35}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 40.742, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 56.505, y: 0, z: 0}
 --- !u!1 &1016438844
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,7 +2800,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2064772336}
         m_TargetAssemblyTypeName: UserNameInputScript, Assembly-CSharp
-        m_MethodName: ChangeColorWhite
+        m_MethodName: NameColorWhite
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3118,8 +3061,13 @@ MonoBehaviour:
   errorPanel: {fileID: 785497656}
   menuPanel: {fileID: 642012107}
   StartButton: {fileID: 532544876}
+  NameCodeScript: {fileID: 2064772336}
   ErrorText: {fileID: 1584885256}
   UID: {fileID: 891820569}
+  compsToHide:
+  - {fileID: 551684076}
+  compsToShow:
+  - {fileID: 2059557783}
 --- !u!4 &1274837298
 Transform:
   m_ObjectHideFlags: 0
@@ -4066,7 +4014,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1669937048
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4534,6 +4482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NameInput: {fileID: 1139483652}
+  CodeInput: {fileID: 739700035}
 --- !u!4 &2064772337
 Transform:
   m_ObjectHideFlags: 0

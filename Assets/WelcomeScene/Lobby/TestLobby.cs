@@ -20,8 +20,13 @@ public class TestLobby : MonoBehaviour
     public GameObject errorPanel;
     public GameObject menuPanel;
     public GameObject StartButton;
+    public UserNameInputScript NameCodeScript;
     public TMP_Text ErrorText;
     public TMP_Text UID;
+    [SerializeField]
+    Behaviour[] compsToHide;
+    [SerializeField]
+    Behaviour[] compsToShow;
     private Lobby hostLobby;
     private Lobby joinedLobby;
     private float heartbeatTimer;
@@ -130,15 +135,9 @@ public class TestLobby : MonoBehaviour
 
     public async void JoinLobby() {
         try {
-            if (NameInput.text == "") {
-                NameInput.image.color = new Color(1f, 0f, 0f, 0.4f);
-                TextMeshProUGUI placeholder = (TextMeshProUGUI)NameInput.placeholder;
-                placeholder.text = "Please Choose Name...";
-            }
-            else if (CodeInput.text == "" || CodeInput.text.Length != 6) {
-                CodeInput.image.color = new Color(1f, 0f, 0f, 0.4f);
-            }
-            else {
+            bool codeBool = NameCodeScript.CheckCode(), nameBool = NameCodeScript.CheckName();
+            if (codeBool && nameBool) {
+                JoinButtonFct();
                 JoinLobbyByCodeOptions joinLobbyByCodeOptions = new JoinLobbyByCodeOptions {
                     Player = GetPlayer()
                 };
@@ -158,6 +157,7 @@ public class TestLobby : MonoBehaviour
                 errorPanel.SetActive(true);
                 ErrorText.text = "Invalid code!";
             }
+            JoinButtonFctFail();
             Debug.Log(e);
         }
     }
@@ -223,6 +223,24 @@ public class TestLobby : MonoBehaviour
             } catch (LobbyServiceException e) {
                 Debug.Log(e);
             }
+        }
+    }
+
+    public void JoinButtonFct() {
+        for(int i = 0; i<compsToHide.Length; i++) {
+            compsToHide[i].gameObject.SetActive(false);
+        }
+        for(int i = 0; i<compsToShow.Length; i++) {
+            compsToShow[i].gameObject.SetActive(true);
+        }
+    }
+
+    public void JoinButtonFctFail() {
+        for(int i = 0; i<compsToHide.Length; i++) {
+            compsToHide[i].gameObject.SetActive(true);
+        }
+        for(int i = 0; i<compsToShow.Length; i++) {
+            compsToShow[i].gameObject.SetActive(false);
         }
     }
 
