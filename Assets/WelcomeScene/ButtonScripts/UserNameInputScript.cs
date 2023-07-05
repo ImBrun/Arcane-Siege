@@ -33,7 +33,7 @@ public class UserNameInputScript : MonoBehaviour
     }
 
     public bool CheckName() {
-        if(NameInput.text == "") {
+        if(NameInput.text == "" || NameInput.text.Contains(" ")) {
             NameInput.image.color = new Color(1f, 0f, 0f, 0.4f);
             TextMeshProUGUI placeholder = (TextMeshProUGUI)NameInput.placeholder;
             placeholder.text = "Please Choose Name...";

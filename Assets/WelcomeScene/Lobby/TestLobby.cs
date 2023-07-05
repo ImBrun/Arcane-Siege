@@ -178,7 +178,6 @@ public class TestLobby : MonoBehaviour
             Connected_Player_Name3.text = "";
             Connected_Player_Name3.gameObject.SetActive(false);
         }
-
     }
 
     public async void LeaveLobby() {
@@ -202,9 +201,49 @@ public class TestLobby : MonoBehaviour
     private Player GetPlayer() {
         return new Player() {
                     Data = new Dictionary<string, PlayerDataObject> {
-                        { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, NameInput.text)}
+                        { "PlayerName", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, NameInput.text)},
+                        { "Ready", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "False") }
                     }
                 };
+    }
+
+    public async void SetPlayerReady() {
+        try {
+            UpdatePlayerOptions options = new UpdatePlayerOptions();
+            options.Data = new Dictionary<string, PlayerDataObject>() {
+                { "Ready", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "True")}
+            };
+
+            string PlayerId = AuthenticationService.Instance.PlayerId;
+            joinedLobby = await LobbyService.Instance.UpdatePlayerAsync(joinedLobby.Id, PlayerId, options);
+        } catch (LobbyServiceException e) {
+            Debug.Log(e);
+        }
+    }
+
+    public async void SetPlayerUnready() {
+        try {
+            UpdatePlayerOptions options = new UpdatePlayerOptions();
+            options.Data = new Dictionary<string, PlayerDataObject>() {
+                { "Ready", new PlayerDataObject(PlayerDataObject.VisibilityOptions.Member, "False")}
+            };
+
+            string PlayerId = AuthenticationService.Instance.PlayerId;
+            joinedLobby = await LobbyService.Instance.UpdatePlayerAsync(joinedLobby.Id, PlayerId, options);
+        } catch (LobbyServiceException e) {
+            Debug.Log(e);
+        }
+    }
+
+    public bool checkPlayersReady() {
+        if(joinedLobby != null) {
+            foreach(Player player in joinedLobby.Players) {
+                if(player.Data["Ready"].Value == "False") 
+                    return false;
+            }
+            return true;
+        }
+        return false;
     }
 
 

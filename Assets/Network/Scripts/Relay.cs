@@ -11,6 +11,10 @@ using System.Threading.Tasks;
 
 public class Relay : MonoBehaviour
 {
+    bool AllReady = false;
+    private float updateTimer;
+    [SerializeField]
+    private TestLobby lobbyScript;
     public async Task<string> CreateRelay() {
         try {
             Allocation allocation = await RelayService.Instance.CreateAllocationAsync(2);
@@ -41,6 +45,15 @@ public class Relay : MonoBehaviour
             NetworkManager.Singleton.StartClient();
         } catch (RelayServiceException e) {
             Debug.Log(e);
+        }
+    }
+
+    void Update() {
+        updateTimer -= Time.deltaTime;
+        AllReady = lobbyScript.checkPlayersReady();
+        if(updateTimer < 0f){
+            updateTimer = 2f;
+            Debug.Log("Connected players ready: " + AllReady);
         }
     }
 
